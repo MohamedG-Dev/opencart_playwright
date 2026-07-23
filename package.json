@@ -1,0 +1,39 @@
+{
+  "name": "ecommerce_playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:master": "playwright test --grep @master",
+    "test:sanity": "playwright test --grep @sanity",
+    "test:regression": "playwright test --grep @regression",
+    "test:end2end": "playwright test --grep @end2end",
+    "test:datadriven": "playwright test --grep @datadriven",
+    "test:master:headed": "playwright test --grep @master --headed",
+    "test:end2ned:headed": "playwright test --grep @end2end --headed",
+    "test:sanity:debug": "playwright test --grep @sanity --debug",
+    "clean:results": "rimraf allure-results",
+    "report:generate": "allure generate ./allure-results -o ./allure-report --clean",
+    "report:open": "allure open ./allure-report",
+    "report": "npm run report:generate && npm run report:open",
+    "test:master:report": "npm run clean:results && npm run test:master && npm run report",
+    "test:sanity:report": "npm run clean:results && npm run test:sanity && npm run report",
+    "test:regression:report": "npm run clean:results && npm run test:regression && npm run report",
+    "test:datadriven:report": "npm run clean:results && npm run test:datadriven && npm run report",
+    "test:end2end:report": "npm run clean:results && npm run test:end2end && npm run report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
+    "allure-playwright": "^3.10.2",
+    "rimraf": "^6.1.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "csv-parse": "^7.0.1"
+  }
+}
