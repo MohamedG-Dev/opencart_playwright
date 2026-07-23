@@ -51,6 +51,6 @@ export class LoginPage {
     }
 
     async getloginErrorMessage(): Promise<null | string> {
-        return (this.txtErrorMsg.textContent());
+        return (await this.txtErrorMsg.textContent());
     }
 }
