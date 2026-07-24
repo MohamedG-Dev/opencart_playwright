@@ -7,10 +7,12 @@ on:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4  
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
       with:
         node-version: lts/*
     - name: Install dependencies
@@ -19,6 +21,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
+      #run: npm run test:master:report
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
